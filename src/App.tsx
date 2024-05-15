@@ -4,6 +4,8 @@ import UserListPage from './pages/UserListPage';
 import UserDetailPage from './pages/UserDetailPage';
 import { Container, LinearProgress } from '@mui/material';
 import './i18n';
+import './App.css';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 const App: React.FC = () => {
 
@@ -18,6 +20,7 @@ const App: React.FC = () => {
           <Route path="/user-detail" element={<UserDetailPage setLoading={setLoading} />} />
           <Route path='*' element={<Navigate to="/" />}   />
         </Routes>
+        <LanguageSwitcher />
       </Container>
     </Router>
   );

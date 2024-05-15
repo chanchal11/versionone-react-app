@@ -10,7 +10,7 @@ interface UserListPageProps {
 }
 
 const UserListPage: React.FC<UserListPageProps> = ({ setLoading = () => null }: { setLoading?: (loading: boolean) => void }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
@@ -38,9 +38,11 @@ const UserListPage: React.FC<UserListPageProps> = ({ setLoading = () => null }: 
     navigate(`/user-detail`, { state: { id } } );
   };
 
+  const getClassForArabic = () => i18n.language !== 'en' ? 'rtl': '';
+
   return (
     <div>
-      <Typography variant="h4">{t('userListTitle')}</Typography>
+      <Typography className={`${getClassForArabic()}`} variant="h4">{t('userListTitle')}</Typography>
       <UserList users={users} onDetailClick={handleDetailClick} />
       <Stack spacing={2} alignItems="center" marginTop={2}>
         <Pagination count={totalPages} page={page} onChange={handlePageChange} />
