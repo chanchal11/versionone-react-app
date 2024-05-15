@@ -17,7 +17,8 @@ const resources = {
       "startDate": "Start Date",
       "expDate": "Expiry Date",
       "viewDetails": "View Details",
-      "noData": "No data available"
+      "noData": "No data available",
+      "countOfServices": "Count of Services"
     }
   },
   ar: {
@@ -33,7 +34,8 @@ const resources = {
       "startDate": "تاريخ البدء",
       "expDate": "تاريخ الانتهاء",
       "viewDetails": "عرض التفاصيل",
-      "noData": "لا توجد بيانات"
+      "noData": "لا توجد بيانات",
+      "countOfServices": "عدد الخدمات"
     }
   }
 };
