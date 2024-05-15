@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
+import UserListPage from './pages/UserListPage';
+import UserDetailPage from './pages/UserDetailPage';
+import { Container, LinearProgress } from '@mui/material';
+import './i18n';
 
-function App() {
+const App: React.FC = () => {
+
+  const [ loading, setLoading ] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container>
+      { loading && <LinearProgress />}
+        <Routes>
+          <Route path="/" element={<UserListPage setLoading={setLoading}  />} />
+          <Route path="/user-detail" element={<UserDetailPage setLoading={setLoading} />} />
+          <Route path='*' element={<Navigate to="/" />}   />
+        </Routes>
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
